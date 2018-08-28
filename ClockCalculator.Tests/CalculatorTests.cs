@@ -23,6 +23,7 @@ namespace ClockCalculator.Tests
         [TestCase(15, 90)]
         [TestCase(18, 180)]
         [TestCase(13, 30)]
+        [TestCase(12, 0)]
         public void Calculator_GetDegrees_WithAfternoonHour_ReturnsCorrectAngle(int hour, int expected)
         {
             // Assemble
