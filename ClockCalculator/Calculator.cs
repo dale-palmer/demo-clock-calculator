@@ -8,7 +8,11 @@ namespace ClockCalculator
 
         public int GetDegrees(int hour, int minutes)
         {
-            return hour * DEGREES_PER_HOUR;
+            hour = hour % 12;
+
+            var hourPosition = hour * DEGREES_PER_HOUR;
+
+            return hourPosition;
         }
     }
 }
