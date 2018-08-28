@@ -4,15 +4,21 @@ namespace ClockCalculator
 {
     public class Calculator
     {
-        private const int DEGREES_PER_HOUR = 30;
+        private const int MINUTES_PER_HOUR = 60;
+        private const decimal HOUR_HAND_DEGREES_PER_MINUTE = 0.5M;
+        private const int MINUTE_HAND_DEGREES_PER_MINUTE = 6;
 
-        public int GetDegrees(int hour, int minutes)
+        public decimal GetDegrees(int hour, int minute)
         {
             hour = hour % 12;
 
-            var hourPosition = hour * DEGREES_PER_HOUR;
+            var totalMinutes = (hour * MINUTES_PER_HOUR) + minute;
 
-            return hourPosition;
+            var hourPosition = totalMinutes * HOUR_HAND_DEGREES_PER_MINUTE;
+
+            var minutePosition = minute * MINUTE_HAND_DEGREES_PER_MINUTE;
+
+            return Math.Abs(hourPosition - minutePosition);
         }
     }
 }

@@ -34,5 +34,20 @@ namespace ClockCalculator.Tests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase(6, 30, 15)]
+        [TestCase(12, 30, 165)]
+        [TestCase(3, 15, 7.5)]
+        public void Calculator_GetDegrees_WithHoursAndMinutes_ReturnsCorrectAngle(int hour, int minute, decimal expected)
+        {
+            // Assemble
+            var sut = new Calculator();
+
+            // Act
+            var actual = sut.GetDegrees(hour, minute);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
