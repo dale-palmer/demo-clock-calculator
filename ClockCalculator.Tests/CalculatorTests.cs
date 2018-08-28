@@ -49,5 +49,20 @@ namespace ClockCalculator.Tests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase(9, 0)]
+        [TestCase(10, 8)]
+        public void Calculator_GetDegrees_WithReflexAngleResult_ShouldReturnSmallestAngle(int hour, int minute)
+        {
+            // Assemble
+            var threshold = 180;
+            var sut = new Calculator();
+
+            // Act
+            var actual = sut.GetDegrees(hour, minute);
+
+            // Assert
+            Assert.LessOrEqual(actual, threshold);
+        }
     }
 }

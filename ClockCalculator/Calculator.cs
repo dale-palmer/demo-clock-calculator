@@ -18,7 +18,9 @@ namespace ClockCalculator
 
             var minutePosition = minute * MINUTE_HAND_DEGREES_PER_MINUTE;
 
-            return Math.Abs(hourPosition - minutePosition);
+            var result = Math.Abs(hourPosition - minutePosition);
+
+            return result > 180 ? result - 180 : result;
         }
     }
 }
