@@ -10,13 +10,8 @@ namespace ClockCalculator.Tests
         [TestCase(1, 30)]
         public void Calculator_GetDegrees_OnTheHour_ReturnsCorrectAngle(int hour, int expected)
         {
-            // Assemble
-            var sut = new Calculator();
+            var actual = Calculator.GetDegrees(hour, 0);
 
-            // Act
-            var actual = sut.GetDegrees(hour, 0);
-
-            // Assert
             Assert.AreEqual(expected, actual);
         }
 
@@ -26,13 +21,8 @@ namespace ClockCalculator.Tests
         [TestCase(12, 0)]
         public void Calculator_GetDegrees_WithAfternoonHour_ReturnsCorrectAngle(int hour, int expected)
         {
-            // Assemble
-            var sut = new Calculator();
+            var actual = Calculator.GetDegrees(hour, 0);
 
-            // Act
-            var actual = sut.GetDegrees(hour, 0);
-
-            // Assert
             Assert.AreEqual(expected, actual);
         }
 
@@ -41,13 +31,8 @@ namespace ClockCalculator.Tests
         [TestCase(3, 15, 7.5)]
         public void Calculator_GetDegrees_WithHoursAndMinutes_ReturnsCorrectAngle(int hour, int minute, decimal expected)
         {
-            // Assemble
-            var sut = new Calculator();
+            var actual = Calculator.GetDegrees(hour, minute);
 
-            // Act
-            var actual = sut.GetDegrees(hour, minute);
-
-            // Assert
             Assert.AreEqual(expected, actual);
         }
 
@@ -55,14 +40,10 @@ namespace ClockCalculator.Tests
         [TestCase(10, 8)]
         public void Calculator_GetDegrees_WithReflexAngleResult_ShouldReturnSmallestAngle(int hour, int minute)
         {
-            // Assemble
             var threshold = 180;
-            var sut = new Calculator();
 
-            // Act
-            var actual = sut.GetDegrees(hour, minute);
+            var actual = Calculator.GetDegrees(hour, minute);
 
-            // Assert
             Assert.LessOrEqual(actual, threshold);
         }
     }
